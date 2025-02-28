@@ -1,6 +1,7 @@
 # Task Management Application
 
-[Uma aplicação completa de gerenciamento de tarefas construída com .NET 9](#task-management-application)
+Uma aplicação completa de gerenciamento de tarefas construída com .NET 9, composta por uma API Web ASP.NET Core backend seguindo os princípios da Arquitetura Limpa e um frontend desktop WPF usando o padrão MVVM.
+
 
 ## Índice
 - [Visão Geral do Projeto](#visão-geral-do-projeto)
