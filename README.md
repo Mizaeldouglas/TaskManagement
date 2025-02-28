@@ -280,12 +280,13 @@ A aplicação inclui um middleware personalizado para tratamento de exceções q
 
 
 ### App WPF
-https://github.com/user-attachments/assets/d700be42-c2db-4e08-bcef-86d768b5b70e
+https://github.com/user-attachments/assets/197f2fd9-ed25-4c76-8ff1-a0abf837d4c0
 
 ### Swagger
 ![Swagger UI - Opera 28_02_2025 13_34_58](https://github.com/user-attachments/assets/c8f7e1fa-6f4e-408c-81fa-9a5c99463260)
 
 ### Tests
+
 
 ![TaskManagement - Microsoft Visual Studio 28_02_2025 13_38_36](https://github.com/user-attachments/assets/1d4cf6dc-17d9-40b6-9c99-22d079130627)
 
