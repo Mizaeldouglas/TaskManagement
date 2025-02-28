@@ -1,6 +1,21 @@
-﻿# Task Management Application
+# Task Management Application
 
-Uma aplicação completa de gerenciamento de tarefas construída com .NET 9, composta por uma API Web ASP.NET Core backend seguindo os princípios da Arquitetura Limpa e um frontend desktop WPF usando o padrão MVVM.
+[Uma aplicação completa de gerenciamento de tarefas construída com .NET 9](#task-management-application)
+
+## Índice
+- [Visão Geral do Projeto](#visão-geral-do-projeto)
+- [Arquitetura](#arquitetura)
+  - [Backend](#backend-aspnet-core-web-api)
+  - [Frontend](#frontend-wpf)
+- [Testes Unitários](#testes-unitários)
+- [Começando](#começando)
+  - [Pré-requisitos](#pré-requisitos)
+  - [Configuração e Instalação](#configuração-e-instalação)
+- [Endpoints da API](#endpoints-da-api)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Tratamento de Exceções](#tratamento-de-exceções)
+- [Screenshots e Videos](#screenshots-e-videos)
 
 ## Visão Geral do Projeto
 
@@ -276,7 +291,7 @@ A aplicação inclui um middleware personalizado para tratamento de exceções q
 - Dados de teste parametrizados para casos de teste diversos
 - Fixtures compartilhadas para configuração de testes relacionados
 
-## Screeshots e Videos
+## Screenshots e Videos
 
 
 ### App WPF
