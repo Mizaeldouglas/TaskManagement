@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="TaskManagement.WPF.Controls.TaskFormControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:TaskManagement.WPF.Converters"
+             xmlns:viewmodels="clr-namespace:TaskManagement.WPF.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewmodels:BaseViewModel}">
+
+    <Border Background="White" Padding="20" CornerRadius="6"
+            BorderBrush="#DDDDDD" BorderThickness="1"
+            Effect="{Binding Source={x:Static SystemParameters.DropShadow}}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="4" 
+                       Text="{Binding IsEditMode, Converter={StaticResource BoolToStringConverter}, 
+                    ConverterParameter='Editar Tarefa;Nova Tarefa'}" 
+                       FontSize="18" FontWeight="SemiBold" Margin="0,0,0,16"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Título:" VerticalAlignment="Center" Margin="0,0,12,0"
+                       FontWeight="SemiBold"
+                       Visibility="{Binding IsStatusEditMode, Converter={StaticResource InverseBoolToVisibilityConverter}}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
+                     Text="{Binding NewTaskTitle, UpdateSourceTrigger=PropertyChanged}" 
+                     Style="{StaticResource ModernTextBoxStyle}"
+                     Margin="0,0,0,12"
+                     Visibility="{Binding IsStatusEditMode, Converter={StaticResource InverseBoolToVisibilityConverter}}"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Descrição:" VerticalAlignment="Top" Margin="0,8,12,0"
+                       FontWeight="SemiBold"
+                       Visibility="{Binding IsStatusEditMode, Converter={StaticResource InverseBoolToVisibilityConverter}}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" 
+                     Text="{Binding NewTaskDescription, UpdateSourceTrigger=PropertyChanged}" 
+                     Style="{StaticResource ModernTextBoxStyle}"
+                     TextWrapping="Wrap" AcceptsReturn="True" Height="80" Margin="0,0,0,16"
+                     Visibility="{Binding IsStatusEditMode, Converter={StaticResource InverseBoolToVisibilityConverter}}"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Status:" VerticalAlignment="Center" Margin="0,0,12,0"
+                       FontWeight="SemiBold"
+                       Visibility="{Binding IsStatusEditMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+            <ComboBox Grid.Row="3" Grid.Column="1" Width="150" 
+                      ItemsSource="{Binding StatusOptions}" 
+                      SelectedItem="{Binding NewStatus}"
+                      Style="{StaticResource ModernComboBoxStyle}"
+                      Visibility="{Binding IsStatusEditMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+            <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Right">
+               
+                <Button Command="{Binding CancelEditCommand}" Content="Cancelar" Width="100" 
+                        Style="{StaticResource SecondaryButtonStyle}" Margin="0,0,12,0"
+                        Visibility="{Binding IsEditModeOrStatusEditMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+                <Button Command="{Binding UpdateTaskCommand}" Content="Atualizar" Width="100" 
+                        Style="{StaticResource ActionButtonStyle}" Margin="0,0,12,0"
+                        Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+                <Button Command="{Binding CreateTaskCommand}" Content="Criar Tarefa" Width="120" 
+                        Style="{StaticResource ActionButtonStyle}"
+                        Visibility="{Binding IsEditModeOrStatusEditMode, Converter={StaticResource InverseBoolToVisibilityConverter}}"/>
+
+                <Button Command="{Binding UpdateTaskStatusCommand}" Content="Salvar Status" Width="140" 
+                        Style="{StaticResource ActionButtonStyle}" Margin="0,0,12,0"
+                        Visibility="{Binding IsStatusEditMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

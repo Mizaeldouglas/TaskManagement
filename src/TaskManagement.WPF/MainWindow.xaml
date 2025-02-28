@@ -4,9 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskManagement.WPF"
+        xmlns:controls="clr-namespace:TaskManagement.WPF.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Task Management" Height="700" Width="950"
+        WindowStartupLocation="CenterScreen">
 
-    </Grid>
+    <Border Background="#F5F5F5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Background="#0078D4" Padding="24,16">
+                <Grid>
+                    <TextBlock Text="Task Management" FontSize="24" FontWeight="SemiBold" Foreground="White"/>
+                    <TextBlock Text="Organize suas tarefas com eficiência" 
+                               FontSize="14" Foreground="#E0E0E0"
+                               VerticalAlignment="Bottom" Margin="0,25,0,0"/>
+                </Grid>
+            </Border>
+
+            <controls:TaskFormControl Grid.Row="1" Margin="16"/>
+
+            <controls:TaskListControl Grid.Row="2" Margin="16,0,16,16"/>
+
+            <controls:ErrorMessageControl Grid.Row="3" Margin="16,0,16,16"/>
+        </Grid>
+    </Border>
 </Window>

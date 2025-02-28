@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TaskManagement.Domain.Entities;
+﻿namespace TaskManagement.Domain.Entities;
 
 public class TaskItem
 {
@@ -56,7 +50,7 @@ public class TaskItem
         Status = TaskStatus.Pending;
     }
 
-    // For EF
+
     private TaskItem()
     {
         CreationDate = DateTime.UtcNow;
