@@ -25,6 +25,16 @@ O frontend segue o padrão MVVM (Model-View-ViewModel):
 3. **Views**: Componentes de UI XAML
 4. **Services**: Classes que lidam com a comunicação com a API
 
+## Testes Unitários
+
+O projeto inclui testes unitários abrangentes para validar o comportamento das diferentes camadas da aplicação:
+
+1. **Testes da Camada de Domínio**: Validam as regras de negócio e comportamentos das entidades
+2. **Testes da Camada de Aplicação**: Verificam a lógica dos handlers de comandos e consultas
+3. **Testes da Camada de Infraestrutura**: Testam os repositórios e acesso a dados
+4. **Testes da API**: Validam os controladores e endpoints da API
+
+
 ## Começando
 
 ### Pré-requisitos
@@ -112,6 +122,30 @@ O frontend segue o padrão MVVM (Model-View-ViewModel):
 - Verifique se a URL da API no `appsettings.json` do projeto WPF corresponde à URL onde a API está sendo executada
 - Certifique-se de que não há regras de firewall bloqueando a conexão
 
+
+### Executando os Testes
+
+#### Usando Visual Studio
+
+1. Abra a solução no Visual Studio
+2. Abra o Gerenciador de Testes (Menu: Teste > Gerenciador de Testes)
+3. Clique em "Executar Todos os Testes" ou selecione testes específicos para executar
+4. Para ver a cobertura de código, vá para Menu: Teste > Analisar Cobertura de Código > Todos os Testes
+
+#### Usando CLI .NET
+
+Para executar todos os testes da solução:
+```
+dotnet test
+```
+Para executar testes de um projeto específico:
+```
+dotnet test tests/TaskManagement.Domain.Tests/TaskManagement.Domain.Tests.csproj
+```
+Para executar com relatório de cobertura de código:
+```
+dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+```
    
 ## Endpoints da API
 
@@ -189,12 +223,16 @@ Resposta:
 ```
 TaskManagement/ 
 ├── src/    
-├── TaskManagement.Domain/           # Entidades, interfaces, regras de negócio 
-│   ├── TaskManagement.Application/      # Casos de uso, DTOs, interfaces 
-│   ├── TaskManagement.Infrastructure/   # Acesso a dados, repositórios 
-│   ├── TaskManagement.Api/              # Controladores de API, configurações 
-│   └── TaskManagement.WPF/              # Aplicação frontend WPF 
-└── tests/                               # Projetos de teste (adição futura)
+├── TaskManagement.Domain/						# Entidades, interfaces, regras de negócio 
+│   ├── TaskManagement.Application/					# Casos de uso, DTOs, interfaces 
+│   ├── TaskManagement.Infrastructure/					# Acesso a dados, repositórios 
+│   ├── TaskManagement.Api/						# Controladores de API, configurações 
+│   └── TaskManagement.WPF/						# Aplicação frontend WPF 
+└── tests/							# Projetos de teste
+	 ├── TaskManagement.Domain.Tests/				# Testes das entidades e regras de domínio 
+	 ├── TaskManagement.Application.Tests/				# Testes dos handlers e serviços 
+	 ├── TaskManagement.Infrastructure.Tests/			# Testes de repositórios 
+	 └── TaskManagement.Api.Tests/					# Testes de integração da API
 ```
 
 ## Tecnologias Utilizadas
@@ -215,6 +253,13 @@ TaskManagement/
 - Microsoft.Extensions.DependencyInjection
 - HttpClient
 
+### Teste Unitários
+
+- **xUnit**: Framework principal de testes
+- **Moq**: Biblioteca para criação de mocks
+- **FluentAssertions**: Para asserções expressivas
+- **Coverlet**: Para geração de relatórios de cobertura de código
+
 
 ## Tratamento de Exceções
 
@@ -224,6 +269,9 @@ A aplicação inclui um middleware personalizado para tratamento de exceções q
 - Registra detalhes da exceção para depuração
 - Formata respostas de erro consistentes para o cliente
 
-## Autor
+### Práticas de Teste Implementadas
 
-- **Mizael Douglas**
+- Testes isolados com mocks para dependências externas
+- Padrão AAA (Arrange-Act-Assert) para organização de testes
+- Dados de teste parametrizados para casos de teste diversos
+- Fixtures compartilhadas para configuração de testes relacionados
