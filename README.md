@@ -17,14 +17,19 @@
 - [Tratamento de Exceções](#tratamento-de-exceções)
 - [Screenshots e Videos](#screenshots-e-videos)
 
-## Visão Geral do Projeto [[Voltar ao Índice](#índice)]
+## Visão Geral do Projeto
+
+- [[Voltar ao Índice](#índice)]
 
 Esta aplicação permite aos usuários:
 - Criar, ler, atualizar e excluir tarefas
 - Filtrar tarefas por status (Pendente, Em Andamento, Concluída)
 - Gerenciar detalhes das tarefas através de uma interface amigável
 
-## Arquitetura [[Voltar ao Índice](#índice)]
+## Arquitetura
+
+- [[Voltar ao Índice](#índice)]
+
 
 ### Backend (ASP.NET Core Web API)
 O backend segue os princípios da Arquitetura Limpa com as seguintes camadas:
@@ -42,6 +47,8 @@ O frontend segue o padrão MVVM (Model-View-ViewModel):
 
 ## Testes Unitários
 
+- [[Voltar ao Índice](#índice)]
+
 O projeto inclui testes unitários abrangentes para validar o comportamento das diferentes camadas da aplicação:
 
 1. **Testes da Camada de Domínio**: Validam as regras de negócio e comportamentos das entidades
@@ -51,6 +58,8 @@ O projeto inclui testes unitários abrangentes para validar o comportamento das 
 
 
 ## Começando
+
+- [[Voltar ao Índice](#índice)]
 
 ### Pré-requisitos
 
@@ -164,6 +173,8 @@ dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
    
 ## Endpoints da API
 
+- [[Voltar ao Índice](#índice)]
+
 | Método | Endpoint                 | Descrição                             |
 |--------|--------------------------|---------------------------------------|
 | GET    | /api/tasks               | Obter todas as tarefas                |
@@ -252,6 +263,8 @@ TaskManagement/
 
 ## Tecnologias Utilizadas
 
+- [[Voltar ao Índice](#índice)]
+
 ### Backend
 - ASP.NET Core 9.0
 - Entity Framework Core 8.0
@@ -278,6 +291,8 @@ TaskManagement/
 
 ## Tratamento de Exceções
 
+- [[Voltar ao Índice](#índice)]
+
 A aplicação inclui um middleware personalizado para tratamento de exceções que:
 - Captura e processa diferentes tipos de exceções
 - Retorna códigos de status HTTP apropriados (400, 404, 500)
@@ -292,6 +307,8 @@ A aplicação inclui um middleware personalizado para tratamento de exceções q
 - Fixtures compartilhadas para configuração de testes relacionados
 
 ## Screenshots e Videos
+
+- [[Voltar ao Índice](#índice)]
 
 
 ### App WPF
