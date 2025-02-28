@@ -17,14 +17,14 @@
 - [Tratamento de Exceções](#tratamento-de-exceções)
 - [Screenshots e Videos](#screenshots-e-videos)
 
-## Visão Geral do Projeto
+## Visão Geral do Projeto [[Voltar ao Índice](#índice)]
 
 Esta aplicação permite aos usuários:
 - Criar, ler, atualizar e excluir tarefas
 - Filtrar tarefas por status (Pendente, Em Andamento, Concluída)
 - Gerenciar detalhes das tarefas através de uma interface amigável
 
-## Arquitetura
+## Arquitetura [[Voltar ao Índice](#índice)]
 
 ### Backend (ASP.NET Core Web API)
 O backend segue os princípios da Arquitetura Limpa com as seguintes camadas:
